@@ -1,0 +1,43 @@
+/* Assuming you have a file named ExamStart.css in the same directory as your component */
+
+.exam-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+.exam-container h1 {
+    font-size: 24px;
+    color: #3498db;
+    margin-bottom: 15px;
+}
+
+.exam-container h2 {
+    font-size: 20px;
+    color: #2ecc71;
+    margin-top: 10px;
+}
+
+.exam-container p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.exam-container button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.exam-container button:hover {
+    background-color: #2980b9;
+}

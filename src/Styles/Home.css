@@ -1,0 +1,61 @@
+/* Assuming you have a file named Home.css in the same directory as your component */
+
+.login-container {
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+}
+
+.login-container h3 {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.login-container input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+/* .login-container button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background-color: #45a049;
+} */
+
+.register-link {
+    margin-top: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* .register-link button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+
+} */
+a{
+    text-decoration: none;
+    color: #f8f8f8;
+}
+
+.register-link button:hover {
+    background-color: #2980b9;
+}

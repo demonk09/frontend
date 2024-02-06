@@ -1,0 +1,50 @@
+
+.red{
+    background: red;
+}
+.green{
+    background: green;
+}
+
+.exam-questions-container {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    text-align: left;
+}
+.heading{
+    text-align:center ;
+    font-size: 45px;
+    color: aqua;
+}
+.exam-questions-container h1 {
+    font-size: 24px;
+    color: #3498db;
+    margin-bottom: 20px;
+   
+}
+
+.exam-questions-container div {
+    margin-bottom: 15px;
+}
+
+.exam-questions-container input {
+    margin-right: 10px;
+    text-align: left;
+}
+
+.exam-questions-container button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.exam-questions-container button:hover {
+    background-color: #2980b9;
+}

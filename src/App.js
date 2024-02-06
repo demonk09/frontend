@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './components/Home'
+import Register from './components/Register'
+import Examst from './components/Examst'
+import Assesnment from './components/Assesnment'
+import Res from './components/Res'
+import Gc from './components/Gc'
 
 function App() {
+
+  let [data,setData]=useState({})
+  let fun=(data)=>{
+    setData(data)
+  }
+  let obj={"data":data,"fun":fun}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   <BrowserRouter>
+   <Gc.Provider value={obj}>
+
+    <Routes>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/reg' element={<Register/>}/>
+      <Route path='/landingpage' element={<Examst/>}/>
+      <Route path='/exam' element={<Assesnment/>}/>
+      <Route path='/res' element={<Res/>}/>
+    </Routes>
+
+   </Gc.Provider>
+   </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
