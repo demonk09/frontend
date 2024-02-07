@@ -41,3 +41,8 @@
 .exam-container button:hover {
     background-color: #2980b9;
 }
+
+span {
+    color: #007bff;
+    font-weight: bold;
+}

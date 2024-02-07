@@ -7,7 +7,7 @@ function Examst() {
   let obj=useContext(Gc)
   let [data,setData]=useState({})
   useEffect(()=>{
-    axios.get(`http://localhost:5000//getatt/xyz@gmail.com`).then((res)=>{
+    axios.get(`http://localhost:5000/getatt/${obj.data._id}`).then((res)=>{
       setData(res.data)
     }).catch((err)=>{
       console.log(err);
@@ -15,20 +15,20 @@ function Examst() {
   },[])
   return (
     <div className="exam-container">
-    {data.attempt === 0 && (
+    {data.count == 0 && 
         <div>
             <h1>PLEASE READ INSTRUCTIONS AND START THE EXAM 📝</h1>
             <button><Link to="/exam">START THE TEST</Link></button>
         </div>
-    )}
-    {data.attempt !== 0 && (
+    }
+    {data.count != 0 && 
         <div>
-            <h1>YOUR OLD ATTEMPTS {data.attempt} 💯</h1>
-            <h2>Your best score is {data.score}</h2>
+            <h1>YOUR OLD ATTEMPTS <span> {data.count} </span> 💯</h1>
+            <h2>Your best score is <span> {data.score} </span> </h2>
             <p>Are you interested in improving your score? Start the exam.</p>
             <button><Link to="/exam">Start</Link></button>
         </div>
-    )}
+    }
 </div>
   )
 }
