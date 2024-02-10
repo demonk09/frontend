@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import '../Styles/Assessnment.css'
 import Gc from './Gc'
+import {Link} from 'react-router-dom'
 
 
 function Assesnment() {
@@ -48,14 +49,13 @@ function Assesnment() {
     axios.get(`http://localhost:5000/upres/${sc}/${obj.data._id}`)
   .then((res) => {
     if (res.data.msg == 'fa') {
-      setPrev(""); // Set prev state to res.data.msg if it's not 'fa'
+      setPrev(""); 
     } else {
-      setPrev(res.data.msg); // Clear prev state if res.data.msg is 'fa'
+      setPrev(res.data.msg); 
     }
   })
   .catch((err) => {
-    console.error(err); // Handle any errors that occur during the request
-    // Optionally, setPrev to an error message to inform the user
+    console.error(err); 
     setPrev('Error updating score. Please try again later.');
   });
   console.log(prev);
@@ -95,6 +95,7 @@ function Assesnment() {
       {!f&& <div>
         <h1>YOUR SCORE IS :-{score}🚖🚨 </h1>
         {prev!="" &&<h1>YOUR PREVIOUS MAX SCORE WAS ${prev} 🚖🚨</h1>}
+        <button><Link to="/landingpage">HOME PAGE</Link></button>
         {
           qns.map((item,i)=>{
             return(
@@ -105,7 +106,6 @@ function Assesnment() {
                 {item.op3!=undefined && <div>  {ans[item._id]=='op3' ? <div className={ans[item._id]==qns[i].ans ? "green" : "red"}> <input type="radio" name={item._id} value="op3" onChange={fun} readOnly disabled/>{item.op3} </div> : <div className={item.ans=='op3' && 'green'}> <input type="radio" name={item._id} value="op3" readOnly onChange={fun} disabled/> {item.op3} </div> }</div> }
                 {item.op4!=undefined && <div>  {ans[item._id]=='op4' ? <div className={ans[item._id]==qns[i].ans ? "green" : "red"}> <input type="radio" name={item._id} value="op4" onChange={fun} readOnly disabled/>{item.op4} </div> : <div className={item.ans=='op4' && 'green'}> <input type="radio" name={item._id} value="op4" readOnly onChange={fun} disabled/> {item.op4} </div> } </div> }
                 {item.op5!=undefined && <div>  {ans[item._id]=='op5' ? <div className={ans[item._id]==qns[i].ans ? "green" : "red"}> <input type="radio" name={item._id} value="op5" onChange={fun} readOnly disabled/>{item.op5} </div> : <div className={item.ans=='op5' && 'green'}> <input type="radio" name={item._id} value="op5" readOnly onChange={fun} disabled/> {item.op5} </div> } </div> }
-
               </div>
             )
           })
