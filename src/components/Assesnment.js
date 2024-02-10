@@ -8,8 +8,8 @@ import {Link} from 'react-router-dom'
 function Assesnment() {
   let [ans,setAns]=useState({})
   let [qns,setQns]=useState([])
-  let [f,SetF]=useState(true)
-  let [score,sectScore]=useState()
+  let [f,setF]=useState(true)
+  let [score,setScore]=useState()
   let [prev,setPrev]=useState("")
   let obj=useContext(Gc)
 
@@ -49,13 +49,14 @@ function Assesnment() {
     axios.get(`http://localhost:5000/upres/${sc}/${obj.data._id}`)
   .then((res) => {
     if (res.data.msg == 'fa') {
-      setPrev(""); 
+      setPrev(""); // Set prev state to res.data.msg if it's not 'fa'
     } else {
-      setPrev(res.data.msg); 
+      setPrev(res.data.msg); // Clear prev state if res.data.msg is 'fa'
     }
   })
   .catch((err) => {
-    console.error(err); 
+    console.error(err); // Handle any errors that occur during the request
+    // Optionally, setPrev to an error message to inform the user
     setPrev('Error updating score. Please try again later.');
   });
   console.log(prev);
@@ -76,7 +77,7 @@ function Assesnment() {
 
             return(
               <div>
-                <h1>{i+1} ) {item.q} </h1>
+                <h1>{i+1} . {item.q} </h1>
                 
                 <div><input type="radio" name={item._id} value="op1" onChange={fun}/>{item.op1}</div>
                 <div><input type="radio" name={item._id} value="op2" onChange={fun}/>{item.op2}</div>
@@ -95,7 +96,6 @@ function Assesnment() {
       {!f&& <div>
         <h1>YOUR SCORE IS :-{score}🚖🚨 </h1>
         {prev!="" &&<h1>YOUR PREVIOUS MAX SCORE WAS ${prev} 🚖🚨</h1>}
-        <button><Link to="/landingpage">HOME PAGE</Link></button>
         {
           qns.map((item,i)=>{
             return(

@@ -48,3 +48,9 @@
 .exam-questions-container button:hover {
     background-color: #2980b9;
 }
+
+span {
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 30px;
+}
